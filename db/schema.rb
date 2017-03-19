@@ -22,8 +22,9 @@ ActiveRecord::Schema.define(version: 20170311092205) do
   create_table "comments", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
-    
-ActiveRecord::Schema.define(version: 20170310181816) do
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "mail"

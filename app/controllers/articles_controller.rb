@@ -2,14 +2,23 @@ require 'nokogiri'
 
 class ArticlesController < ApplicationController
 
-	def clawl
-		clawl_mainichi
+	def index
+		@article = Article.all
 	end
 
-	def clawl_mainichi
-		url = 'http://mainichi.jp/'
-		@clawl_mainichi = Nokogiri::HTML.parse(open(url), nil, nil)
-		@entry_list = @clawl_mainichi.xpath('//ul[@class="list-typeA"]').xpath('.//a')
+	def show
+		@article = Article.find(params[:id])
 	end
+
+	def clawl
+		clawl_news
+	end
+
+	def clawl_news
+		url = 'http://mainichi.jp/'
+		@clawl_news = Nokogiri::HTML.parse(open(url), nil, nil)
+		@entry_list = @clawl_news.xpath('//ul[@class="list-typeA"]').xpath('.//a')
+	end
+
 
 end
