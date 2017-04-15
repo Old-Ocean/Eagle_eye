@@ -1,4 +1,4 @@
-<h2><%= @clawl_mainichi.title %></h2>
+<h2><%= @clawl_news.title %></h2>
 <table>
   <tr>
     <th>title</th>
@@ -6,7 +6,7 @@
   <%# binding.pry %>
   <% @entry_list.each do |entry| %>
     <tr>
-      <td><%= entry.inner_html %></td>
+      <td><%= entry.inner_html.html_safe %></td>
     </tr>
   <% end %>
 </table>

@@ -15,10 +15,8 @@ class ArticlesController < ApplicationController
 	end
 
 	def clawl_news
-		url = 'http://mainichi.jp/'
+		url = 'https://mainichi.jp/'
 		@clawl_news = Nokogiri::HTML.parse(open(url), nil, nil)
 		@entry_list = @clawl_news.xpath('//ul[@class="list-typeA"]').xpath('.//a')
 	end
-
-
 end
