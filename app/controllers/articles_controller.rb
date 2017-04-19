@@ -16,12 +16,13 @@ class ArticlesController < ApplicationController
 		@entry_list = @clawl_news.xpath('//ul[@class="list-typeA"]').xpath('.//li')
 		id = params[:id].to_i
 		@article = @entry_list[id]
+		@article = Article.find(params[:id])
 	end
 
 	private
 	def clawling
 		url = 'https://mainichi.jp/'
 		@clawl_news = Nokogiri::HTML.parse(open(url), nil, nil)
-	end
 
+	end
 end
