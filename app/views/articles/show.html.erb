@@ -1,0 +1,15 @@
+<p id="article_<%= params[:id] %>">
+<%= @article.inner_html.html_safe %>
+</p>
+
+<iframe class="article_frame" src="" style="width: 100%; height: 600px;"></iframe>
+
+
+
+<script>
+	var href = $('#article_<%= params[:id] %> > a').attr('href'); //← [/articles/20170420/k00/00m/040/003000c]が入ってる
+	console.log(href);
+
+	var src = 'https://mainichi.jp/';
+	$('.article_frame').attr('src', src + href);
+</script>

@@ -3,15 +3,5 @@
   <tr>
     <th>title</th>
   </tr>
-  <%# binding.pry %>
-  <% @entry_list.each do |entry| %>
-    <tr>
-      <td><%= entry.inner_html.html_safe %></td>
-    </tr>
-  <% end %>
-  <% @entry_img.each do |entry| %>
-    <tr>
-      <td><%= entry.inner_html %></td>
-    </tr>
-  <% end %>
+  <%= render 'articles/clawl', entry_list: @entry_list %>
 </table>
