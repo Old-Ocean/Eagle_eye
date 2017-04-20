@@ -1,0 +1,6 @@
+<%#binding.pry %>
+  <% @entry_a.each_with_index do |entry, index| %>
+  <p>
+  <%= link_to entry.inner_html.html_safe %>：<%= link_to "Talk!!", article_path(index) %>
+  </p>
+  <% end %>
