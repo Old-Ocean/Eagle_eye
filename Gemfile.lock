@@ -194,8 +194,8 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
-  hirb
   execjs
+  hirb
   jbuilder (~> 2.5)
   jquery-rails
   less-rails
