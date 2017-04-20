@@ -23,10 +23,11 @@ gem 'therubyracer', platforms: :ruby
 
 gem 'nokogiri'
 gem 'devise'
-gem 'less-rails'
-gem 'execjs'
-gem 'twitter-bootstrap-rails'
+
 gem "font-awesome-rails"
+gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
