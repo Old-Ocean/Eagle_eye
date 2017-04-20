@@ -4,6 +4,7 @@ require 'open-uri'
 class ArticlesController < ApplicationController
 	before_action :clawling, only: [:index, :show]
 #binding.pry
+
 	def index
 		@entry_a = @clawl_news.xpath('//ul[@class="list-typeA"]').xpath('.//a')
 	end
