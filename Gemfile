@@ -23,7 +23,7 @@ gem 'therubyracer', platforms: :ruby
 
 gem 'nokogiri'
 gem 'devise'
-gem 'less-rails'
+gem 'less-rails', git: 'https://github.com/MustafaZain/less-rails'
 gem 'execjs'
 gem 'twitter-bootstrap-rails'
 
