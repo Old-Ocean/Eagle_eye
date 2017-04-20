@@ -26,6 +26,7 @@ gem 'devise'
 gem 'less-rails'
 gem 'execjs'
 gem 'twitter-bootstrap-rails'
+gem "font-awesome-rails"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
