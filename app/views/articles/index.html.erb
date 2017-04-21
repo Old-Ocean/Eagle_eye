@@ -1,8 +1,10 @@
-<%#binding.pry %>
-<div class="span8">
-  <% @entry_a.each_with_index do |entry, index| %>
-  <p class="lead">
-  <%= link_to entry.inner_html.html_safe %>：<%= link_to "Talk!!", article_path(index) %>
-  </p>
-  <% end %>
- </div>
+<h2>トークルーム一覧</h2>
+
+<% @articles.each do |article| %>
+	<div class="article-room">
+		<%= article.title %>:
+		<%= article.body %>
+		<%= link_to "into", article_path(article) %>
+	</div>
+<% end %>
+

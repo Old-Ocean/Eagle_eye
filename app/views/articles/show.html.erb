@@ -9,6 +9,17 @@
 <% @article.comments.each do |comment| %>
 	<%= comment.user.email %>：
 	<%= comment.body %>
+		<% if user_signed_in? %>
+			<% if comment.like?(current_user) %>
+				<%= link_to likes_path(comment.id), method: :delete do %>
+					<i class="fa fa-heart" aria-hidden="true"></i>
+				<% end %>
+			<% else %>
+				<%= link_to like_path(comment.id), method: :post do %>
+					<i class="fa fa-heart-o" aria-hidden="true"></i>
+				<% end %>
+			<% end %>
+		<% end %>
 <% end %>
 
 <% if user_signed_in? %>
