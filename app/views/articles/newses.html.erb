@@ -1,6 +1,7 @@
 <%#binding.pry %>
   <% @entry_a.first(5).each_with_index do |entry, index| %>
-  <p>
-  <%= link_to entry.inner_html.html_safe %>：<%= link_to "more", news_path(index) %>
+  <p style="display: inline;">
+  <%= link_to entry.inner_html.html_safe %>
+  <p class="btn btn-default"><%= link_to "more", news_path(index) %></p>
   </p>
   <% end %>
