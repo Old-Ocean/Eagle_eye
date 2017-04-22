@@ -1,16 +1,16 @@
-<%= form_for @article do |f| %>
-	<p>
-		<%= f.label :title %><br>
-		<%= f.text_field :title %>
-	</p>
-	<p>
-		<%= f.label :body %><br>
-		<%= f.text_field :body %>
-	</p>
-	<p>
-		<%= f.hidden_field :user_id, value: current_user.id %>
-	</p>
-	<p>
-		<%= f.submit "Talk" %>
-	</p>
-<% end %>
+<div class="talk-room-form">
+	<%= form_for @article do |f| %>
+		<p>
+			<%= f.label :title %><br>
+			<%= f.text_field :title %>について
+		</p>
+		<p>
+			<%= f.label :body %><br>
+			<%= f.text_field :body %>
+			<%= f.hidden_field :user_id, value: current_user.id %>
+		</p>
+		<p>
+			<%= f.submit "Create Room" %>
+		</p>
+	<% end %>
+</div>
