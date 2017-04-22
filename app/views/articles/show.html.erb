@@ -18,7 +18,7 @@
 	          	<h4 class="modal-title"><%= f.label :body, "コメント" %></h4>
 	        </div>
 	        <div class="modal-body">
-	          	<p><%= f.text_area :body, class: "form-control" %>
+	          	<p><%= f.text_area :body, class: "form-control", id: "comment" %>
 	          		<%= f.hidden_field :user_id, value: current_user.id %>
 			  		<%= f.hidden_field :article_id, value: @article.id %>
 			  	</p>
@@ -33,7 +33,7 @@
 
 <!-- ここから本文 -->
 <!-- 討論する議題  -->
-<article>
+<article class="show-article">
 	<div>
 		<h1><%= @article.title %>について</h1>
 	</div>
@@ -48,12 +48,14 @@
 <div class="comments-index clearfix">
 	<% @article.comments.each do |comment| %>
 		<div class="comments-user">
-			<p class="user-icon">
-				<span class="glyphicon glyphicon-user"></span>
-			</p>
-			<p>
-				<%= comment.user.email %>
-			</p>
+			<div class="user">
+				<p class="user-icon">
+					<span class="glyphicon glyphicon-user"></span>
+				</p>
+				<p>
+					<%= comment.user.email %>
+				</p>
+			</div>
 		</div>
 		<div class="comment-body arrow_box">
 			<p>
