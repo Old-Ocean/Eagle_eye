@@ -21,7 +21,11 @@
 	margin-left: 92%;
 	position: fixed;
 }
-
+.show-article{
+	width: 45%;
+	margin: 20px auto;
+	text-align: center;
+}
 .comments-index{
 
 	.comments-user{
@@ -30,8 +34,12 @@
 		text-align: center;
 		font-size: 20px;
 
-		.glyphicon-user{
+		.user{
+			margin-left: 150px;
+
+			.glyphicon-user{
 			font-size: 25px;
+			}
 		}
 	}
 
@@ -46,15 +54,16 @@
 
 	.arrow_box {
 	position: relative;
-	background: #d3e3e1;
+	background: #fffafa;
 	width: 50%;
 	padding: 15px 0;
 	border: 4px solid #f0f5f3;
+	border-radius: 10px;
 	}
 
 	.arrow_box:after, .arrow_box:before {
 		right: 100%;
-		top: 50%;
+		top: 30%;
 		border: solid transparent;
 		content: " ";
 		height: 0;
@@ -65,7 +74,7 @@
 
 	.arrow_box:after {
 		border-color: rgba(211, 227, 225, 0);
-		border-right-color: #d3e3e1;
+		border-right-color: #fffafa;
 		border-width: 10px;
 		margin-top: -10px;
 	}
