@@ -190,7 +190,6 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   devise
-
   font-awesome-rails
   hirb
   jbuilder (~> 2.5)

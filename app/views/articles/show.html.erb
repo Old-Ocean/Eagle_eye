@@ -1,35 +1,77 @@
-<h1><%= @article.title %>について</h1>
+<!-- Trigger the modal with a button -->
+<div class="comment-modal">
+	<% if user_signed_in? %>
+		<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
+			<span class="glyphicon glyphicon-comment"></span>
+		</button>
+	<% end %>
+</div>
 
-<p>
-	<%= @article.body %>
-</p>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+        <div class="modal-content">
+	            <%= form_for Comment.new, url: article_comments_path(@article.id) do |f| %>
+	        <div class="modal-header">
+	          	<button type="button" class="close" data-dismiss="modal">&times;</button>
+	          	<h4 class="modal-title"><%= f.label :body, "コメント" %></h4>
+	        </div>
+	        <div class="modal-body">
+	          	<p><%= f.text_area :body, class: "form-control" %>
+	          		<%= f.hidden_field :user_id, value: current_user.id %>
+			  		<%= f.hidden_field :article_id, value: @article.id %>
+			  	</p>
+	        </div>
+	        <div class="modal-footer">
+	          	<%= f.submit "コメント" %>
+	        </div>
+	        <% end %>
+      	</div>
+    </div>
+</div>
+
+<!-- ここから本文 -->
+<!-- 討論する議題  -->
+<article>
+	<div>
+		<h1><%= @article.title %>について</h1>
+	</div>
+	<p>
+		<%= @article.body %>
+	</p>
+</article>
 
 <hr>
 
-<% @article.comments.each do |comment| %>
-	<%= comment.user.email %>：
-	<%= comment.body %>
-		<% if user_signed_in? %>
-			<% if comment.like?(current_user) %>
-				<%= link_to likes_path(comment.id), method: :delete do %>
-					<i class="fa fa-heart" aria-hidden="true"></i>
+<!-- 議題に対するコメント -->
+<div class="comments-index clearfix">
+	<% @article.comments.each do |comment| %>
+		<div class="comments-user">
+			<p class="user-icon">
+				<span class="glyphicon glyphicon-user"></span>
+			</p>
+			<p>
+				<%= comment.user.email %>
+			</p>
+		</div>
+		<div class="comment-body arrow_box">
+			<p>
+				<%= comment.body %>
+			</p>
+			<div class="like-btn">
+				<% if user_signed_in? %>
+					<% if comment.like?(current_user) %>
+						<%= link_to likes_path(comment.id), method: :delete do %>
+							<i class="fa fa-heart" aria-hidden="true"></i>
+						<% end %>
+					<% else %>
+						<%= link_to like_path(comment.id), method: :post do %>
+							<i class="fa fa-heart-o" aria-hidden="true"></i>
+						<% end %>
+					<% end %>
 				<% end %>
-			<% else %>
-				<%= link_to like_path(comment.id), method: :post do %>
-					<i class="fa fa-heart-o" aria-hidden="true"></i>
-				<% end %>
-			<% end %>
-		<% end %>
-<% end %>
-
-<% if user_signed_in? %>
-	<%= form_for Comment.new, url: article_comments_path(@article.id) do |f| %>
-		<%= f.label :body %><br>
-		<%= f.text_area :body %>
-		<%= f.hidden_field :user_id, value: current_user.id %>
-		<%= f.hidden_field :article_id, value: @article.id %>
-		<p>
-			<%= f.submit "コメント" %>
-		</p>
+			</div>
+		</div>
 	<% end %>
-<% end %>
+</div>
